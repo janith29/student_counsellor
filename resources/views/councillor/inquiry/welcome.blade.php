@@ -61,9 +61,9 @@
               <button class="btn btn-xs btn-warning" data-std_name="{{$inquirys->std_name}}" data-email="{{$inquirys->email}}" data-address="{{$inquirys->address}}" data-phone_num="{{$inquirys->phone_num}}" data-course="{{$inquirys->course}}"  data-start_date="{{date("Y-m",strtotime($inquirys->start_date))}}" data-university="{{$inquirys->university}}" data-inqid="{{$inquirys->id}}"  data-toggle="modal" data-target="#editinquiry" >
                 <i class="fa fa-pencil"></i>
               </button>
-              <button class="btn btn-xs btn-danger" data-std_name="{{$inquirys->std_name}}" data-email="{{$inquirys->email}}"  data-inqid="{{$inquirys->id}}"data-toggle="modal" data-target="#deleteuser" >
+              {{-- <button class="btn btn-xs btn-danger" data-std_name="{{$inquirys->std_name}}" data-email="{{$inquirys->email}}"  data-inqid="{{$inquirys->id}}"data-toggle="modal" data-target="#deleteuser" >
                 <i class="fa fa-trash"></i>
-              </button>
+              </button> --}}
               </td>
 
           </tr>

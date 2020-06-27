@@ -62,9 +62,7 @@
               <button class="btn btn-xs btn-warning" data-std_name="<?php echo e($inquirys->std_name); ?>" data-email="<?php echo e($inquirys->email); ?>" data-address="<?php echo e($inquirys->address); ?>" data-phone_num="<?php echo e($inquirys->phone_num); ?>" data-course="<?php echo e($inquirys->course); ?>"  data-start_date="<?php echo e(date("Y-m",strtotime($inquirys->start_date))); ?>" data-university="<?php echo e($inquirys->university); ?>" data-inqid="<?php echo e($inquirys->id); ?>"  data-toggle="modal" data-target="#editinquiry" >
                 <i class="fa fa-pencil"></i>
               </button>
-              <button class="btn btn-xs btn-danger" data-std_name="<?php echo e($inquirys->std_name); ?>" data-email="<?php echo e($inquirys->email); ?>"  data-inqid="<?php echo e($inquirys->id); ?>"data-toggle="modal" data-target="#deleteuser" >
-                <i class="fa fa-trash"></i>
-              </button>
+              
               </td>
 
           </tr>
