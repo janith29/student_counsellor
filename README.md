@@ -78,3 +78,34 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # student_counsellor
+Clone repository
+
+    $git clone https://github.com/janith29/student_counsellor.git
+
+Change into the working directory
+
+    $ cd student_counsellor
+    
+Copy .env.example to .env and modify according to your environment
+
+    $ cp .env.example .env
+    
+Update composer dependencies
+
+    $ composer update 
+    
+Create `student_service` detabase and change `.env` database `username` , `password` &  `databasename`
+
+then:
+
+    $php artisan config:cache
+
+and
+
+    $ php artisan migrate --seed
+
+To start the PHP built-in server
+  
+    $ php artisan serve 
+
+Now you can browse the site at http://localhost:8080
