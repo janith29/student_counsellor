@@ -61,9 +61,9 @@
               <button class="btn btn-xs btn-warning" data-std_name="{{$inquirys->std_name}}" data-email="{{$inquirys->email}}" data-address="{{$inquirys->address}}" data-phone_num="{{$inquirys->phone_num}}" data-course="{{$inquirys->course}}"  data-start_date="{{date("Y-m",strtotime($inquirys->start_date))}}" data-university="{{$inquirys->university}}" data-inqid="{{$inquirys->id}}"  data-toggle="modal" data-target="#editinquiry" >
                 <i class="fa fa-pencil"></i>
               </button>
-              {{-- <button class="btn btn-xs btn-danger" data-std_name="{{$inquirys->std_name}}" data-email="{{$inquirys->email}}"  data-inqid="{{$inquirys->id}}"data-toggle="modal" data-target="#deleteuser" >
+              <button class="btn btn-xs btn-danger" data-std_name="{{$inquirys->std_name}}" data-email="{{$inquirys->email}}"  data-inqid="{{$inquirys->id}}"data-toggle="modal" data-target="#deleteuser" >
                 <i class="fa fa-trash"></i>
-              </button> --}}
+              </button>
               </td>
 
           </tr>
@@ -193,7 +193,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content bg-danger">
       <div class="modal-header">
-        <h5 class="modal-title" id="productModalLabel">Edit User</h5>
+        <h5 class="modal-title" id="productModalLabel">Delete inquiry</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -212,7 +212,7 @@
           <h3 >
             <span class="text-white">Email:</span> <strong><span id="userDeleteuseremail"></span></strong>
           </h3>
-          <input type="hidden" name="userid"  id="userid" >
+          <input type="hidden" name="inquiryid"  id="inquiryid" >
 
       </div>
       <div class="modal-footer bg-warning">
@@ -252,14 +252,14 @@
   $('#deleteuser').on('shown.bs.modal', function (event) {
 
     var button=$(event.relatedTarget)
-    var usernamee=button.data('username')
-    var userid=button.data('userid')
-    var useremail=button.data('useremail')
-    document.getElementById("userDeleteid").innerHTML =userid;
+    var usernamee=button.data('std_name')
+    var inquiryid=button.data('inqid')
+    var useremail=button.data('email')
+    document.getElementById("userDeleteid").innerHTML =inquiryid;
     document.getElementById("userDeleteusername").innerHTML =usernamee;
     document.getElementById("userDeleteuseremail").innerHTML =useremail;
     var modal=$(this)
-    modal.find('.modal-body #userid').val(userid)
+    modal.find('.modal-body #inquiryid').val(inquiryid)
 
 })
 </script>

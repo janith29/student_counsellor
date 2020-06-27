@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
 use App\Inquiry;
 use Hash;
+use Illuminate\Support\Facades\File; 
 
 
 use Carbon\Carbon;
@@ -72,10 +73,16 @@ class InquiryController extends Controller
         $inquiry->save();
         return back()->with('editmessage', 'Inquiry ID '.$request->inquiryid.' edit successfully!');
     }
-    public function delete( Request $request,User $user)
+    public function delete( Request $request)
     {
-        $user=User::findOrFail( $request->userid);
-        $user->delete();
+        $inquiry=Inquiry::findOrFail( $request->inquiryid);
+        $inquiry->delete();
+        DB::table('apply')->where('inq_id', $request->inquiryid)->delete();
+        DB::table('offer')->where('inq_id', $request->inquiryid)->delete();
+
+        $path='document/'.$request->inquiryid.'inquiry';
+        File::deleteDirectory($path);
+
         return redirect('/councillor/inquiry');
     }
 
