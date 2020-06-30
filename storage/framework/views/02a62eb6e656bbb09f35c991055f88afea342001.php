@@ -122,7 +122,7 @@ use Illuminate\Support\Facades\DB;
                       <th>ID</th>
                       <th>Name</th>
                       <th>Course</th>
-                      <th>Start Month</th>
+                      <th>Submit offer</th>
                       <th>Action</th>
                   </tr>
               </thead>
@@ -160,7 +160,7 @@ use Illuminate\Support\Facades\DB;
                     <th>ID</th>
                       <th>Name</th>
                       <th>Course</th>
-                      <th>Start Month</th>
+                      <th>Submit offer</th>
                       <th>Action</th>
                   </tr>
               </tfoot>

@@ -115,6 +115,16 @@
             <label for="user-name" class="col-form-label">User Password:</label>
             <input type="password" class="form-control"name="user-pass"  autocomplete="off" pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*_=+-])(?=.*[A-Z]).{8,}" id="user-pass" required>
           </div>
+
+          <div class="form-group">
+              <label for="user-name" class="col-form-label">Select user type:</label>
+            <select class="form-control" name="user-type" id="course" required>
+              <option class="form-control"value="">Select</option>
+              <option class="form-control"value="admin">Admin</option>
+              <option class="form-control"value="councillor">Councillor</option>
+          </div>
+           
+          </select>
           <div class="form-group">
             <label for="user-image" class="col-form-label">User Image:</label>
             <input type="file" class="form-control" name="user-image"  id="user-image" required>

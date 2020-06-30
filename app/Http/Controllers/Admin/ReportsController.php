@@ -35,15 +35,29 @@ class ReportsController extends Controller
         $dates = DB::table('inquiry')->distinct('start_date')->select('start_date')->orderBy('start_date','ASC')->get();
         $dateslast = DB::table('inquiry')->distinct('start_date')->select('start_date')->orderBy('start_date','DESC')->first();
         $datesfist = DB::table('inquiry')->distinct('start_date')->select('start_date')->orderBy('start_date','ASC')->first();
-        $dateslast= date('M Y',strtotime('+31 days',strtotime($dateslast->start_date)));
-        $datesfist= date('M Y',strtotime('-29 days',strtotime($datesfist->start_date)));
+        if( $dateslast!=null)
+        {
+            $dateslast= date('M Y',strtotime('+31 days',strtotime($dateslast->start_date)));
+            $datesfist= date('M Y',strtotime('-29 days',strtotime($datesfist->start_date)));
+        }
+        else{
+            $dateslast=0;
+            $datesfist=0;
+        }
 
         //Get unique age
         $age = DB::table('inquiry')->distinct('age')->select('age')->orderBy('age','ASC')->get();
         $agelast = DB::table('inquiry')->distinct('age')->select('age')->orderBy('age','DESC')->first();
         $agefist = DB::table('inquiry')->distinct('age')->select('age')->orderBy('age','ASC')->first();
-        $agelast= ($agelast->age)+1;
-        $agefist= ($agefist->age)-1;
+        if( $dateslast!=null)
+        {
+            $agelast= ($agelast->age)+1;
+            $agefist= ($agefist->age)-1;
+        }
+        else{
+            $agelast=0;
+            $agefist=0;
+        }
 
         //Get unique course
         $course = DB::table('inquiry')->distinct('course')->select('course')->orderBy('id','ASC')->get();
@@ -54,7 +68,6 @@ class ReportsController extends Controller
         // SELECT DISTINCT ProductID FROM OrderDetails;
         return view('admin.reports.welcome',compact('apply','inquiry','offer','dates','dateslast','age','agelast','agefist','datesfist','course','university'));
     }
-
     public function  age (Request $request)
     {
          $inquiry= Inquiry::orderBy('id')->whereBetween('age', [$request->first_age, $request->last_age])->get();
